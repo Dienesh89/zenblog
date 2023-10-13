@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+<!-- Title -->
+{% block title %}Blog{% endblock title%}
+<!-- body -->
+{% block body %}
+
+<!-- slider -->
+
+
+<main id="main">
+<!-- ======= Post Grid Section ======= -->
+<section id="posts" class="posts">
+    <div class="container" data-aos="fade-up">
+        <div class="row g-5" id="show-posts">
+            <div class="text-center" id="posts-animation">
+                <div class="spinner-border" role="status"></div>
+            </div>
+        </div>
+        <!-- End .row -->
+    </div>
+</section>
+<!-- End Lifestyle Category Section -->
+</main><!-- End #main -->
+
+{% load static %}
+<script type="text/javascript" charset="utf-8">
+    let footer = `
+    
+					<footer id="footer" class="footer">
+					    <div class="footer-content">
+					        <div class="container">
+					            <div class="row g-5">
+					                <div class="col-lg-4">
+					                    <h3 class="footer-heading">About {{ blogName }}</h3>
+					                    <p>{{ aboutFooter }}</p>
+					                    <p><a href="about" class="footer-link-more">Learn More</a></p>
+					                </div>
+					                <div class="col-6 col-lg-2">
+					                    <h3 class="footer-heading">{{ footerH1 }}</h3>
+					                    <ul class="footer-links list-unstyled">
+					                        <li><a href="/"><i class="bi bi-chevron-right"></i>{{ navops2 }}</a></li>
+					                        <li><a href="/category"><i class="bi bi-chevron-right"></i>{{ navops3 }}</a></li>
+					                        <li><a href="/single_post"><i class="bi bi-chevron-right"></i>{{ navops4 }}</a></li>
+					                        <li><a href="/about"><i class="bi bi-chevron-right"></i>{{ navops6 }}</a></li>
+					                        <li><a href="/contact"><i class="bi bi-chevron-right"></i>{{ navops7 }}</a></li>
+					                    </ul>
+					                </div>
+					                <div class="col-6 col-lg-2">
+					                    <h3 class="footer-heading">{{ footerH2 }}</h3>
+                            <ul class="footer-links list-unstyled">
+                                <li><a href="/category/{{ category1 }}"> <i class="bi bi-chevron-right"></i> {{ category1 }}</a></li>
+                                <li><a href="/category/{{ category2 }}"> <i class="bi bi-chevron-right"></i> {{ category2 }}</a></li>
+                                <li><a href="/category/{{ category3 }}"> <i class="bi bi-chevron-right"></i> {{ category3 }}</a></li>
+                                <li><a href="/category/{{ category4 }}"> <i class="bi bi-chevron-right"></i> {{ category4 }}</a></li>
+                                <li><a href="/category/{{ category5 }}"> <i class="bi bi-chevron-right"></i> {{ category5 }}</a></li>
+                                <li><a href="/category/{{ category6 }}"> <i class="bi bi-chevron-right"></i> {{ category6 }}</a></li>
+                                <li><a href="/category/{{ category7 }}"> <i class="bi bi-chevron-right"></i> {{ category7 }}</a></li>
+                                <li><a href="/category/{{ category8 }}"> <i class="bi bi-chevron-right"></i> {{ category8 }}</a></li>
+                            </ul>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+					    <div class="footer-legal">
+					        <div class="container">
+					            <div class="row justify-content-between">
+					                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+					                    <div class="copyright">
+					                        © Copyright <strong><span>{{ blogName }}</span></strong>. All Rights Reserved
+					                    </div>
+					                    <div class="credits">
+					                        <!-- All the links in the footer should remain intact. -->
+					                        <!-- You can delete the links only if you purchased the pro version. -->
+					                        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+					                        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/herobiz-bootstrap-business-template/ -->
+					                        Designed by <a href="https://bootstrapmade.com/">{{ designedBy }}</a>
+					                    </div>
+					                </div>
+					                <div class="col-md-6">
+					                    <div class="social-links mb-3 mb-lg-0 text-center text-md-end">
+					                        <a href="{{ twitter }}" class="twitter"><i class="bi bi-twitter"></i></a>
+					                        <a href="{{ facebook }}" class="facebook"><i class="bi bi-facebook"></i></a>
+					                        <a href="{{ instagram }}" class="instagram"><i class="bi bi-instagram"></i></a>
+					                        <a href="{{ skype }}" class="google-plus"><i class="bi bi-skype"></i></a>
+					                        <a href="{{ linkedin }}" class="linkedin"><i class="bi bi-linkedin"></i></a>
+					                    </div>
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+					</footer> 
+    
+    `
+    
+</script>
+<script src="{% static 'assets/js/category.js' %}"></script>
+      
+
+{% endblock body %}
+{% block footer %}{% endblock footer %}

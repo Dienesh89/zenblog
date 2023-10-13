@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<!-- Title -->
+{% block title %}Blog{% endblock title%}
+<!-- body -->
+{% block body %}
+<main id="main">
+<h1 style="margin-top:2rem;text-align:center;">Write Post</h1>
+<script src="https://cdn.tiny.cloud/1/bxz4pnjtl5gxjxf3ab08wf3i5wrrcv5ginli1eye23694equ/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+<textarea>hello</textarea>
+<div class="single-post px-2" id="post-content">
+</div>
+
+<button type="button" id="upload-post" class="btn btn-primary m-2">Upload Post</button>
+
+</main>
+{% load static %}
+<script src="{% static 'assets/js/edit_post.js' %}"></script>
+<main>
+       
+
+
+
+{% block footer %}{% endblock footer %}
+{% endblock body%}

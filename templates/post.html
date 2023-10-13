@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+<!-- Title -->
+{% block title %}{{ title }}{% endblock title%}
+<!-- body -->
+{% block body %}
+
+<main id="main" class="p-2">
+    <div class="post-meta"><span class="date">{{ post_category }}</span> <span class="mx-1">&bullet;</span> <span id="post-date">{{ date }}</span> <span id="view"></span></div>
+    <h1 class="mb-5">{{ title }}</h1>
+              
+    {{ content|safe }}
+</main>
+
+{% load static %}
+<script src="{% static 'assets/js/post.js' %}"></script>
+     
+<script type="text/javascript" charset="utf-8">
+    formatView({{ views }})
+</script>
+
+{% endblock body %}

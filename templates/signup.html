@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+<!-- Title -->
+{% block title %}Blog{% endblock title%}
+<!-- body -->
+{% block body %}
+
+<!-- form -->
+<section id="form" class="main">
+	<h1 style=text-align:center;>Sign up</h1>
+    <form action="/handleSignup/" id="signup-form" method="post" enctype="multipart/form-data">
+            <input required class="form-signup" type="text" name="name" placeholder="Enter your name" />
+            <input required class="form-signup"  type="email" name="email" placeholder="Enter your email" />
+            <input required class="form-signup" type="password" name="password" placeholder="create password" min="8" />
+            <input required class="form-signup" type="password" name="c-password" placeholder="confirm password" />
+                {{ form }}
+            <!-- Login message -->
+            <p id="login-message">Already have an account?
+                <a href="/login">click here</a>
+            </p>
+            {% csrf_token %}
+            <!-- submit btn -->
+            <input class="form-signup"  type="submit" name="continue" id="submit-btn" value="continue" />
+    </form>
+</section>
+
+{% endblock body%}

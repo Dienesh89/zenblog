@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <title>{% block title %}{% endblock title %} | {{ blogName }}</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+        <!-- loading static files -->
+        {% load static %}
+        <!-- Favicons -->
+        <link href="{% static 'assets/img/favicon.png" rel="icon">
+        <link href="{% static 'assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <!-- Vendor CSS Files -->
+        <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+        <!-- Template Main CSS Files -->
+        <link href="{% static 'assets/css/variables.css' %}" rel="stylesheet">
+        <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+        <!-- login css file -->
+        <link href="{% static 'assets/css/login.css' %}" rel="stylesheet">
+
+        <!--========================================================
+            * Template Name: ZenBlog - v1.3.0
+            * Template URL: https://bootstrapmade.com/zenblog-bootstrap-blog-template/
+            * Author: BootstrapMade.com
+            * License: https:///bootstrapmade.com/license/
+            ======================================================== -->
+    </head>
+    <body>
+<!-- ======= Header ======= -->
+<header id="header" class="header my-0 d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <a href="index" class="logo d-flex align-items-center">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="{% static 'assets/img/logo.png" alt=""> -->
+            <h1>{{ blogName }}</h1>
+        </a>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <!-- profile picture and upload post  btn -->
+                {% if request.user.is_authenticated %}
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 offset-md-4 text-center">
+                            {% for x in img %}
+                            {% if x.user == request.user %}
+                            <img src="{{ x.pic.url }}" class="rounded-circle mb-3" alt="Profile Picture">
+                            {% endif %}
+                            {% endfor %}
+                            <h3>{{ request.user.username }}</h3>
+                            <button class="btn btn-lg mt-3 text-white bg-dark" onclick="window.open('/upload-post', '_blank')">Upload New Post</button>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                <!-- signup btn -->
+                {% if request.user.is_authenticated %}
+                {% else %}
+                <li><a href="/signup">{{ navops1 }}</a></li>
+                {% endif %}
+                <li><a href="/">{{ navops2 }}</a></li>
+                <li><a href="/single_post">{{ navops3 }}</a></li>
+                <li class="dropdown">
+                    <a href="/category"><span>{{ navops4 }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                    <ul>
+                        <li><a href="#">{{ category1 }}</a></li>
+                        <li><a href="#">{{ category2 }}</a></li>
+                        <li><a href="#">{{ category3 }}</a></li>
+                        <li><a href="#">{{ category4 }}</a></li>
+                        <li><a href="#">{{ category5 }}</a></li>
+                        <li><a href="#">{{ category6 }}</a></li>
+                        <li><a href="#">{{ category7 }}</a></li>
+                        <li><a href="#">{{ category8 }}</a></li>
+                    </ul>
+                </li>
+                <li><a href="/contact">{{ navops7 }}</a></li>
+                <li><a href="/about">{{ navops6 }}</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a href="/logout">Logout</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        <!-- .navbar -->
+        <div class="position-relative" style="display:flex;">
+            <div style="display:flex;">
+                <form class="search-form">
+                    <input type="text" placeholder="Search posts" id="searchForm" class="form-control m-auto" style="width: 90%; height: 100%; font-size: 14px;">
+                </form>
+            </div>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </div>
+    </div>
+</header>
+<!-- End Header -->
+
+        
+        <!-- django messages -->
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert" style="margin-top:5rem;">
+                 {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+        
+        {% block body %}
+        <h1>Search results:</h1>
+        <!-- ======= Post Grid Section ======= -->
+<main id="main">
+<h1 class="px-3">Search results:</h1>
+<section id="posts" class="posts">
+    <div class="container" data-aos="fade-up">
+        <div class="row gx-5" id="show-posts">
+            <div id="posts-container">
+              
+            </div>
+            <!-- <div class="text-center" id="posts-animation">
+                <div class="spinner-border" role="status"></div>
+            </div> -->
+        </div>
+        <!-- End .row -->
+    </div>
+</section>
+<!-- End Lifestyle Category Section -->
+</main><!-- End #main -->
+        {% endblock body%}
+        
+        {% block footer %}
+      
+        {% endblock footer %}
+        <!-- loading static files -->
+        {% load static %}
+        <!-- Vendor JS Files -->
+        <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+        <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+        <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+        <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+        <script src="{% static 'assets/js/search.js' %}"></script>
+        <!-- Template Main JS File -->
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+<!-- Title -->
+{% block title %}Upload New Post{% endblock title%}
+<!-- body -->
+{% block body %}
+
+{% load static %}
+
+<section class="main">
+    <h1 class="text-center">Upload New Post</h1>
+    <div class="p-2 d-md-flex upload-post-div">
+        <!-- left -->
+        <div class="left">
+            <h1 class="text-center border rounded mt-2 mt-md-0">Upload</h1>
+            <form action="/upload-post/" method="post" enctype="multipart/form-data">
+            {{ form }}
+            {% csrf_token %}
+            <input type="text" name="title" class="form-control my-3" id="title" placeholder="Title" required>
+            <textarea class="form-control my-3" id="desc" name="desc" rows="5" placeholder="Description" required maxlength="400"></textarea>
+            <label for="category">Category:</label>
+            <select class="form-control" id="category" name="category">
+                <option>No Category</option>
+                <option>Business</option>
+                <option>Culture</option>
+                <option>Sport</option>
+                <option>Food</option>
+                <option>Politics</option>
+                <option>Celebrity</option>
+                <option>Startups</option>
+                <option>Travel</option>
+                <option>Entertainment</option>
+            </select>
+            <button type="submit" class="btn btn-dark mt-4">Next</button>
+            </form>
+        </div>
+        <!-- right -->
+        <div class="right">
+            <h1 class="text-center border rounded mt-2 mt-md-0">Post Preview</h1>
+            <div class="col-lg-4 m-auto" style="display:flex;justify-content:center;">
+                <div class="post-entry-1 lg">
+                    <div id="prevThumbnail">
+                      <img src="{% static 'assets/img/no-image.png' %}" class="img-fluid">
+                    </div>
+                    <div class="post-meta"><span class="date" id="prevCategory">No Category</span> <span class="mx-1">&bullet;</span> <span id="date"></span></div>
+                    <h2 id="prevTitle">Title</h2>
+                    <p class="mb-4 d-block" id="prevDesc">Description</p>
+                    <div class="d-flex align-items-center author">
+                        <div class="photo">
+                            {% for x in img %}
+                            {% if x.user == request.user %}
+                            <img src="{{ x.pic.url }}" class="w-2 h-2" alt="Thumbnail">
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="name">
+                            <h3 class="m-0 p-0">{{ request.user.username }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script src="{% static 'assets/js/upload_post.js' %}"></script>
+
+{% endblock body%}
+
+<!-- removing the footer -->
+{% block footer%}{%  endblock footer %}

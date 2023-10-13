@@ -1,0 +1,57 @@
+<!-- ======= Hero Slider Section ======= -->
+{% load static %}
+<section id="hero-slider" class="hero-slider">
+    <div class="container-md" data-aos="fade-in">
+        <div class="row">
+            <div class="col-12">
+                <div class="swiper sliderFeaturedPosts">
+                    <div class="swiper-wrapper">
+                        {% if post2 %}
+                        <div class="swiper-slide">
+                            <a href="post/{{ post1.slug }}" class="img-bg d-flex align-items-end" style="background-image:url({{ post1.thumbnail }});">
+                                <div class="img-bg-inner">
+                                    <h2>{{ post1.title }}</h2>
+                               </div>
+                            </a>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <a href="post/{{ post2.slug }}" class="img-bg d-flex align-items-end" style="background-image:url({{ post2.thumbnail }});">
+                                <div class="img-bg-inner">
+                                    <h2>{{ post2.title }}</h2>
+                               </div>
+                            </a>
+                        </div>
+                        {% endif %}
+                        
+                        {% if post3 %}
+                        <div class="swiper-slide">
+                            <a href="post/{{ post3.slug }}" class="img-bg d-flex align-items-end" style="background-image:url({{ post3.thumbnail }});">
+                                <div class="img-bg-inner">
+                                    <h2>{{ post3.title }}</h2>
+                               </div>
+                            </a>
+                        </div>
+                        {% endif %}
+                        {% if post4 %}
+						<div class="swiper-slide">
+                            <a href="post/{{ post4.slug }}" class="img-bg d-flex align-items-end" style="background-image:url({{ post4.thumbnail }});">
+                                <div class="img-bg-inner">
+                                    <h2>{{ post4.title }}</h2>
+                               </div>
+                            </a>
+                        </div>         
+                        {% endif %}
+                    </div>
+                    <div class="custom-swiper-button-next">
+                        <span class="bi-chevron-right"></span>
+                    </div>
+                    <div class="custom-swiper-button-prev">
+                        <span class="bi-chevron-left"></span>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

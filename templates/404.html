@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+<!-- Title -->
+{% block title %}About{% endblock title%}
+<!-- body -->
+{% block body %}
+
+{% load static %}
+<main id="main">
+  <div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center">
+        <img src="https://via.placeholder.com/300x300.png?text=Error+404" alt="Error 404">
+        <h1 class="mt-4">Oops! The page you requested was not found.</h1>
+        <p class="lead">The requested URL was not found on this server. Please check the URL or go back to the homepage.</p>
+        <a href="/" class="btn btn-primary mt-4">Go to Homepage</a>
+      </div>
+    </div>
+  </div>
+ </main>
+
+{% endblock body %}
