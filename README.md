@@ -1,6 +1,15 @@
 # ZenBlog
 This Blogging web application project is purely made with Django as the backend and Bootstrap as the frontend.
 
+## Screenshots
+![Screenshot](https://Dienesh89.github.io/zenblog/screenshots/1.jpg)
+
+![Screenshot](https://Dienesh89.github.io/zenblog/screenshots/2.jpg)
+
+![Screenshot](https://Dienesh89.github.io/zenblog/screenshots/3.jpg)
+
+![Screenshot](https://Dienesh89.github.io/zenblog/screenshots/4.jpg)
+
 ## Installation Instructions
 
 If you want to work with this project or create a version of it make sure to follow the steps below!
@@ -9,13 +18,13 @@ If you want to work with this project or create a version of it make sure to fol
 1. Download project and install git
    
     ```bash
-        $ apt install git -y
-        $ git clone https://github.com/Dienesh89/zenblog
-        $ cd zenblog
+apt install git -y
+git clone https://github.com/Dienesh89/zenblog
+cd zenblog
     ```
 2. Install requirements.
     ```bash
-        $ pip install -r requirements.txt
+pip install -r requirements.txt
     ``` 
 
 You have now successfully set up the project on your environment.
@@ -25,9 +34,9 @@ You have now successfully set up the project on your environment.
 Make sure you are in `env` and then do the following each at a time.
 
 ```bash
-$ python manage.py makemigrations
-$ python manage.py migrate
-$ python manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
+python manage.py runserver
 ```
 
 ## Features
