@@ -17,15 +17,15 @@ If you want to work with this project or create a version of it make sure to fol
 0. Make sure to install ` Python` and ` pip ` 
 1. Download project and install git
    
-    ```bash
+```bash
 apt install git -y
 git clone https://github.com/Dienesh89/zenblog
 cd zenblog
-    ```
+```
 2. Install requirements.
-    ```bash
+```bash
 pip install -r requirements.txt
-    ``` 
+``` 
 
 You have now successfully set up the project on your environment.
 
